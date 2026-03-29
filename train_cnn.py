@@ -20,8 +20,8 @@ from text_cnn import TextCNN
 # -------------------------
 # Config
 # -------------------------
-TRAIN_PATH = "./data/processed/train.csv"
-TEST_PATH = "./data/processed/test.csv"
+TRAIN_PATH = "./data/processed_v2/train.csv"
+TEST_PATH = "./data/processed_v2/test.csv"
 
 RANDOM_SEED = 2026
 MAX_VOCAB_SIZE = 20000
@@ -33,7 +33,7 @@ NUM_FILTERS = 100
 KERNEL_SIZES = (3, 4, 5)
 DROPOUT = 0.5
 
-BATCH_SIZE = 64
+BATCH_SIZE = 128
 LR = 1e-3
 EPOCHS = 3
 
@@ -152,12 +152,12 @@ def main():
     y_test = test_df["target"].tolist()
 
     # temporary
-    X_train = X_train[:50000]
-    y_train = y_train[:50000]
-    X_val = X_val[:10000]
-    y_val = y_val[:10000]
-    X_test = X_test[:10000]
-    y_test = y_test[:10000]
+    X_train = X_train[:1000000]
+    y_train = y_train[:1000000]
+    X_val = X_val[:20000]
+    y_val = y_val[:20000]
+    # X_test = X_test[:20000]
+    # y_test = y_test[:20000]
 
     print(f"Train size: {len(X_train)}")
     print(f"Val size  : {len(X_val)}")
