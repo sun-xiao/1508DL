@@ -1,0 +1,17 @@
+# Core
+numpy
+pandas
+
+# Deep Learning
+torch
+
+# NLP & preprocessing
+nltk
+emoji
+tqdm
+
+# Machine Learning
+scikit-learn
+
+# Data download
+kaggle
