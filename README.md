@@ -96,12 +96,14 @@ python tune_lstm.py
 - Stratified train/validation splits
 - Consistent preprocessing pipelines
 ### Demo script
-For demo purposes, all weights for the trained lstm model were uploaded. To reproduce testing results:
-1. preprocess the data. it will be saved into `/data/processed_v2`
+For demo purposes, we have some sample input/output in `demo_lstm.ipynb`.
+
+To reproduce testing results from the original dataset(provided that the data is already downloaded):
+1. Preprocess the data. It will be saved into `/data/processed_v2`
 ```
 python preprocess_v2.py
 ```
-2. test pretrained model. The training script will recognize the saved checkpoint that was from previous local training.
+2. Test pretrained model. All weights for the trained lstm model were uploaded. The training script will recognize the saved checkpoint that was from previous local training.
 ```
 python train_lstm.py
 ```
