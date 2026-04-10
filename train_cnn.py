@@ -1,4 +1,5 @@
 import random
+import os
 import numpy as np
 import pandas as pd
 import torch
@@ -215,6 +216,26 @@ def main():
         if val_metrics["f1"] > best_val_f1:
             best_val_f1 = val_metrics["f1"]
             best_state_dict = {k: v.cpu().clone() for k, v in model.state_dict().items()}
+
+    CHECKPOINT_PATH = "./checkpoints/cnn_best.pt"
+    os.makedirs(os.path.dirname(CHECKPOINT_PATH), exist_ok=True)
+
+    torch.save({
+        "model_state_dict": best_state_dict,
+        "model_config": {
+            "vocab_size": len(vocab),
+            "embed_dim": EMBED_DIM,
+            "num_filters": NUM_FILTERS,
+            "kernel_sizes": KERNEL_SIZES,
+            "dropout": DROPOUT,
+            "pad_idx": vocab.pad_idx,
+        },
+        "vocab_stoi": vocab.stoi,
+        "vocab_itos": vocab.itos,
+        "best_val_f1": best_val_f1,
+    }, CHECKPOINT_PATH)
+
+    print(f"Checkpoint saved to {CHECKPOINT_PATH}")
 
     # Step 7: Load best model and evaluate on test
     print("\nLoading best model based on validation F1...")

@@ -96,7 +96,7 @@ python tune_lstm.py
 - Stratified train/validation splits
 - Consistent preprocessing pipelines
 ### Demo script
-For demo purposes, we have some sample input/output in `demo_lstm.ipynb`.
+For demo purposes, we have some sample input/output in `demo_cnn.ipynb` and `demo_lstm.ipynb`.
 
 To reproduce testing results from the original dataset(provided that the data is already downloaded):
 1. Preprocess the data. It will be saved into `/data/processed_v2`
